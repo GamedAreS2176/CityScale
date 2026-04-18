@@ -24,6 +24,7 @@ __pycache__/
 
 # FastAPI / Python
 *.pyc
+*.json
 
 # Environment variables
 .env

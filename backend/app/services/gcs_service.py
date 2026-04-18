@@ -1,6 +1,6 @@
 from google.cloud import storage
 
-client = storage.Client()
+client = storage.Client(project="gleaming-entry-471909-s1")
 bucket_name = "cityscale-bucket"
 
 def upload_file(file, filename):

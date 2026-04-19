@@ -9,6 +9,12 @@ if root_dir not in sys.path:
 
 from dotenv import load_dotenv
 load_dotenv()
+
+# Automatically wire up GCP credentials for gcsfs/pandas and all other Google libraries
+key_path = os.path.join(root_dir, "gleaming-entry-471909-s1-5c03f3ad584a.json")
+if os.path.exists(key_path):
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key_path
+
 from fastapi import FastAPI
 from fastapi import APIRouter
 from app.api.routes import upload, analyze

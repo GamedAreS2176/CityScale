@@ -1,0 +1,8 @@
+region,allocation,population
+North,100000,5000
+South,200000,0
+East,ERR,2000
+West,50000,
+,1000,100
+Central,500k,10000
+Downtown,"5,000",500

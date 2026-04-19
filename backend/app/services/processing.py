@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from app.services.geo_mapper import add_coordinates
 
 def process_csv(file_path: str):
     """
@@ -44,6 +45,9 @@ def process_csv(file_path: str):
     # ==========================
     df["allocation_per_capita"] = df["allocation"] / df["population"]
     
+    records = df.to_dict(orient="records")
+    enriched_records = add_coordinates(records)
+
     # Calculate general summary statistics
     analysis = {
         "status": "success",
@@ -54,7 +58,7 @@ def process_csv(file_path: str):
             "valid_regions_processed": int(df["region"].nunique()),
             "data_cleaning": "Invalid, zero-population, or incomplete rows were ignored."
         },
-        "records": df.to_dict(orient="records")
+        "records": enriched_records
     }
 
     return analysis

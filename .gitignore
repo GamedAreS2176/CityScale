@@ -15,9 +15,10 @@ pids
 node_modules/
 jspm_packages/
 venv/
-env/
+myenv/
 .env/
 __pycache__/
+
 
 # Next.js
 .next/

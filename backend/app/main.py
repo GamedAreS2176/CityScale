@@ -17,9 +17,18 @@ if os.path.exists(key_path):
 
 from fastapi import FastAPI
 from fastapi import APIRouter
+from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes import upload, analyze
 
+
 app = FastAPI(title="CityScale API")
+app.add_middleware(CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 router=APIRouter()
 app.include_router(upload.router, prefix="/upload")
 app.include_router(analyze.router, prefix="/analyze")

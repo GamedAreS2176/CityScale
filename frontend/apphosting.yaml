@@ -1,0 +1,11 @@
+runConfig:
+  region: asia-south1
+  cpu: 1
+  memoryMiB: 512
+  concurrency: 80
+
+env:
+  - variable: NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+    value: "AIzaSyBbZRaeZvHxw0x2sBsneqzEpcZt6WOz2l8"
+  - variable: NEXT_PUBLIC_API_BASE_URL
+    value: "https://cityscale-api-792034774218.asia-south1.run.app"

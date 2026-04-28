@@ -16,6 +16,11 @@ def process_csv(file_path: str):
     # Strip whitespace and standardize column names
     df.columns = df.columns.str.strip().str.lower()
 
+    # Accept common aliases for allocation
+    # e.g. many datasets use "budget" instead of "allocation"
+    if "allocation" not in df.columns and "budget" in df.columns:
+        df = df.rename(columns={"budget": "allocation"})
+
     required_columns = ["region", "allocation", "population"]
     
     # Check if required columns exist
@@ -28,6 +33,8 @@ def process_csv(file_path: str):
     # ==========================
     # 1. Drop rows where region is completely missing
     df = df.dropna(subset=['region'])
+       # ✅ FIX: normalize region cell values too (not just column names)
+    df["region"] = df["region"].astype(str).str.strip()
     
     # 2. Coerce numeric columns (e.g. "ERR" or "500k" becomes NaN) gracefully
     df["allocation"] = pd.to_numeric(df["allocation"], errors="coerce")

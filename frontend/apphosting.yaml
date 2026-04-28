@@ -12,5 +12,11 @@ runConfig:
 env:
   - variable: NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
     value: "AIzaSyBbZRaeZvHxw0x2sBsneqzEpcZt6WOz2l8"
+    availability:
+      - BUILD
+      - RUNTIME
   - variable: NEXT_PUBLIC_API_BASE_URL
     value: "https://cityscale-api-792034774218.asia-south1.run.app"
+    availability:
+      - BUILD
+      - RUNTIME

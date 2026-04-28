@@ -7,7 +7,6 @@ import {
   Circle,
   InfoWindow,
   Marker,
-  type Library,
 } from "@react-google-maps/api";
 
 type DataPoint = {
@@ -20,7 +19,7 @@ type DataPoint = {
   allocation_per_capita?: number;
 };
 
-const libraries: Library[] = [];
+const libraries: ("places" | "drawing" | "geometry" | "visualization")[] = [];
 const fallbackCenter = { lat: 22.5726, lng: 88.3639 }; // Kolkata
 
 function getBiasColor(score: number): { fill: string; stroke: string } {
@@ -189,7 +188,6 @@ export default function MapComponent({ data }: { data: DataPoint[] }) {
                     strokeOpacity: 0.9,
                     strokeWeight: isHovered ? 3 : 2,
                     clickable: true,
-                    cursor: "pointer",
                     zIndex: isHovered ? 3 : 2,
                   }}
                   onClick={() => setSelected(point)}

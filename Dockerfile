@@ -11,4 +11,8 @@ RUN pip install -r backend/requirements.txt
 # Shift working directory to backend so `app.main` can be discovered properly
 WORKDIR /workspace/backend
 
+# Expose the port Cloud Run uses
+EXPOSE 8080
+
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
+

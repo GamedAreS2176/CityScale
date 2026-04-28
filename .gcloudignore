@@ -1,0 +1,26 @@
+# .gcloudignore - controls what gets uploaded to Cloud Build
+# When absent, gcloud falls back to .gitignore which was blocking critical files
+
+# Ignore frontend (not needed for backend Cloud Run deploy)
+frontend/
+node_modules/
+
+# Ignore Python caches
+__pycache__/
+*.pyc
+venv/
+myenv/
+
+# Ignore git metadata
+.git/
+.gitignore
+
+# Ignore docs and scripts (not needed at runtime)
+docs/
+scripts/
+
+# Ignore data uploads (ephemeral, created at runtime)
+data/uploads/
+
+# Ignore Mac files
+.DS_Store

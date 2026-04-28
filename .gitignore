@@ -16,19 +16,21 @@ node_modules/
 jspm_packages/
 venv/
 myenv/
-.env/
 __pycache__/
-
 
 # Next.js
 .next/
 
 # FastAPI / Python
 *.pyc
-*.json
 
-# Environment variables
+# Secrets - NEVER commit these to git
+# (they are included in Cloud Build via .gcloudignore)
 .env
+# Service account key files (contain private keys)
+*-*-*-*-*.json
+
+# Environment variables (local)
 .env.local
 .env.development.local
 .env.test.local

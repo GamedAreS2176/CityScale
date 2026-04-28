@@ -4,14 +4,15 @@ from fastapi import FastAPI, APIRouter
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
-
 # Fix import path
 current_dir = os.path.dirname(os.path.abspath(__file__))
 root_dir = os.path.abspath(os.path.join(current_dir, "../../"))
 if root_dir not in sys.path:
     sys.path.append(root_dir)
+
+# Load environment variables from the project root .env
+# (CWD in Docker is /workspace/backend, but .env is at /workspace/.env)
+load_dotenv(os.path.join(root_dir, ".env"))
 
 # Setup Google credentials
 key_path = os.path.join(root_dir, "gleaming-entry-471909-s1-5c03f3ad584a.json")

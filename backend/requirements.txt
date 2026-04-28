@@ -7,3 +7,4 @@ python-dotenv
 google-cloud-storage
 gcsfs
 fsspec
+requests

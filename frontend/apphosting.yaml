@@ -11,7 +11,7 @@ runConfig:
 # See https://firebase.google.com/docs/app-hosting/configure#user-defined-environment
 env:
   - variable: NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
-    value: "AIzaSyBbZRaeZvHxw0x2sBsneqzEpcZt6WOz2l8"
+    secret: NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
     availability:
       - BUILD
       - RUNTIME
